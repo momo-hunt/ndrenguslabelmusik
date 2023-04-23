@@ -5,6 +5,11 @@
 	--size-h4: 22.5px;
 	--size-h5: 18px;
 	--size-h6: 14.4px;
+
+	--bg-1: #2e2e52;
+	--bg-2: #dbe2f0;
+	--bg-3: #ff9000;
+	--bg-4: #c3d1e3;
 }
 
 *,
@@ -20,12 +25,13 @@ body {
 	font-size: var(--size-h5);
 	width: 100%;
 	overflow-x: hidden;
-	background-color: yellow;
+	background-color: var(--bg-1);
+	color: var(--bg-2);
 }
 
-body * {
-	border: 1px solid red !important;
-}
+/* body * {
+	border: 0.2px solid red !important;
+} */
 
 h1 {
 	font-size: var(--size-h1);
@@ -62,10 +68,20 @@ small {
 	font-weight: 400;
 }
 
+p {
+	line-height: 24px;
+	font-weight: 300;
+}
+
 a {
 	text-decoration: none;
 	display: block;
 	line-height: 24px;
+	color: inherit;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 label {
@@ -98,7 +114,9 @@ button,
 input[type='button'] {
 	cursor: pointer;
 	font-size: inherit;
-	display: block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: 40px;
 	padding: 0 2rem;
 	background: transparent;
@@ -116,3 +134,5 @@ ol {
 	margin-left: 2rem;
 	line-height: 24px;
 }
+
+/* custom */
