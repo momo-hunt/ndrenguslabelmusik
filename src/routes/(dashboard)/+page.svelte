@@ -50,18 +50,8 @@
 			<h2>$0.00</h2>
 		</article>
 	</section>
-	<p>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, exercitationem aut soluta
-		temporibus tempore ad autem voluptatum ab fugiat, deserunt dolore rem ex, repellat nulla minima
-		a distinctio assumenda vitae officia nam perspiciatis animi rerum officiis. Ex, aliquid.
-		Cupiditate deserunt dignissimos itaque, quibusdam architecto et ullam similique. Corporis quos
-		quasi dignissimos, quas ipsa tempora ea consequuntur hic commodi neque iure? Quas commodi
-		expedita, voluptatum fuga facilis eius. Fugit iusto nemo nam illum veniam doloribus, esse nulla
-		perspiciatis maxime, excepturi praesentium reiciendis? Vero cum repudiandae temporibus in fuga
-		veritatis numquam deleniti quas similique, quaerat fugiat, rerum ipsa, id architecto accusamus
-		recusandae!
-	</p>
 </main>
+
 <footer>
 	<div>
 		<h3>Ndrengus Label Musik</h3>
@@ -88,7 +78,7 @@
 	}
 
 	main {
-		margin-bottom: 100px;
+		margin-bottom: 24px;
 	}
 
 	section {
@@ -125,18 +115,20 @@
 
 	section.info {
 		background-color: transparent;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
+		display: flex;
+		flex-wrap: wrap;
+
 		gap: 1rem;
 	}
 
 	section.info article {
 		margin: 0;
+		width: calc(50% - 0.5rem);
 		text-align: center;
 	}
 
 	section.info article:last-child {
-		width: 200%;
+		width: 100%;
 	}
 
 	section.info article:first-child,
@@ -150,8 +142,8 @@
 	}
 
 	footer {
-		position: fixed;
-		bottom: 0;
+		/* position: fixed; */
+		/* bottom: 0; */
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
