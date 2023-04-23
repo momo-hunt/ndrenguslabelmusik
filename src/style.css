@@ -1,38 +1,114 @@
+:root {
+	--size-h1: 43.95px;
+	--size-h2: 35.16px;
+	--size-h3: 28.13px;
+	--size-h4: 22.5px;
+	--size-h5: 18px;
+	--size-h6: 14.4px;
+}
+
 *,
 ::before,
 ::after {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	text-decoration: none;
-}
-
-:root {
-	--bg-1: #2e2e52;
-	--bg-2: #dbe2f0;
-	--bg-3: #c3d1e3;
-	--color-1: #dbe2f0;
 }
 
 body {
-	margin: 0;
 	font-family: 'Kanit', sans-serif;
-	background-color: var(--bg-1);
-	color: var(--color-1);
-	font-size: 30px;
+	font-size: var(--size-h5);
+	width: 100%;
+	overflow-x: hidden;
+	background-color: yellow;
+}
+
+body * {
+	border: 1px solid red !important;
+}
+
+h1 {
+	font-size: var(--size-h1);
+	line-height: 48px;
+}
+
+h2 {
+	font-size: var(--size-h2);
+	line-height: 40px;
+}
+
+h3 {
+	font-size: var(--size-h3);
+	line-height: 32px;
+	font-weight: 500;
+}
+
+h4 {
+	font-size: var(--size-h4);
+	line-height: 24px;
+	font-weight: 500;
+}
+
+h5 {
+	font-size: var(--size-h5);
+	line-height: 24px;
+	font-weight: 500;
+}
+
+h6,
+small {
+	font-size: var(--size-h6);
+	line-height: 16px;
+	font-weight: 400;
 }
 
 a {
-	color: inherit;
+	text-decoration: none;
+	display: block;
+	line-height: 24px;
+}
+
+label {
+	line-height: 24px;
+}
+
+input:not([type='radio']):not([type='checkbox']):not([type='button']) {
+	font-size: inherit;
+	display: block;
+	width: 100%;
+	height: 48px;
+	padding: 0 1rem;
+	background: transparent;
+	border: none;
+	outline: none;
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+	cursor: pointer;
+	width: 18px;
+	height: 18px;
+}
+
+button,
+input[type='button'] {
+	cursor: pointer;
+	font-size: inherit;
+	display: block;
+	height: 48px;
+	padding: 0 2rem;
+	background: transparent;
+	border: none;
+	outline: none;
+}
+
+small {
+	opacity: 0.6;
 	display: block;
 }
 
-input,
-button {
-	width: 100%;
-	font-family: 'Kanit', sans-serif;
-	background: transparent;
-	outline: none;
-	border: none;
-	color: inherit;
+ul,
+ol {
+	margin-left: 2rem;
+	line-height: 24px;
 }
