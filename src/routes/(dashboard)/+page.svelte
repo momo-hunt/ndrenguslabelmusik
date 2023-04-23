@@ -22,9 +22,9 @@
 		<h4>Selamat datang</h4>
 		<h5>{data?.user || 'null'}</h5>
 		<button type="button">
-			<Icon src={Bell} solid size="24" />
+			<span><Icon src={Bell} solid size="24" /></span>
 			<span>Informasi Laporan & Pembayaran</span>
-			<Icon src={ChevronDown} solid size="24" />
+			<span><Icon src={ChevronDown} solid size="24" /></span>
 		</button>
 	</article>
 
@@ -106,11 +106,11 @@
 		/* position: relative; */
 		justify-content: space-between;
 		margin-top: 1rem;
-		padding: 2rem;
+		padding: 2rem 1rem;
 		width: 100%;
 		background-color: var(--bg-4);
-		gap: 1rem;
-		border-radius: 2rem;
+		gap: 0.5rem;
+		border-radius: 1.6rem;
 	}
 
 	section.info {
