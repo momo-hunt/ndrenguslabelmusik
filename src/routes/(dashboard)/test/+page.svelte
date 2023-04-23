@@ -19,11 +19,15 @@
 <label for="">Label</label>
 <input type="text" placeholder="input" />
 
-<input type="radio" name="" id="" /><label for="">radio</label>
+<label for="rr"><input type="radio" name="" id="rr" /> radio</label>
+<select name="" id="">
+	<option value="a">a</option>
+	<option value="b">b</option>
+</select>
 
 <input type="button" value="button inpt" />
 
-<input type="checkbox" name="" id="" /><label for="">cek</label>
+<label for="cc"><input type="checkbox" name="" id="cc" /> cek</label>
 
 <input type="color" name="" id="" />
 <input type="date" name="" id="" />
