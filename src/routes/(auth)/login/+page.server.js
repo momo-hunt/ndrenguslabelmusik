@@ -1,11 +1,14 @@
 import { fail } from '@sveltejs/kit';
 
-export const load = ({ url, cookies }) => {
+export const load = ({ locals, url, cookies }) => {
 	if (url.searchParams.has('logout')) {
 		console.log('logout ok');
+		locals.user = undefined;
 		cookies.delete('sessionId');
 		return;
 	}
+
+	if (locals.user) return { user: locals.user };
 };
 
 export const actions = {

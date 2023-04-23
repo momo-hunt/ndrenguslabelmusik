@@ -4,6 +4,8 @@
 	import logo from '$lib/assets/logo.png';
 	import { Eye, EyeSlash, Icon, LockClosed, User } from 'svelte-hero-icons';
 
+	export let data;
+
 	let typeInputPassword = 'password';
 	function showPassword() {
 		typeInputPassword = typeInputPassword == 'password' ? 'text' : 'password';
@@ -13,35 +15,41 @@
 <main>
 	<img src={logo} alt="Ndrengus Label Musik" />
 
-	<h2>LOGIN</h2>
+	{#if data?.user}
+		<h2>Anda sudah login !</h2>
+		<a href="/"><h1>Ke dashboard</h1></a>
+	{/if}
+	{#if !data?.user}
+		<h2>LOGIN</h2>
 
-	<form
-		method="post"
-		use:enhance={({ form }) => {
-			//
-			form.password.value = '';
-			return ({ result }) => {
-				console.log(result);
-				if (result.type == 'success') return goto('/');
-				alert(`Ada kesalahan masukkan username atau password!`);
-			};
-		}}
-	>
-		<label for="username">
-			<Icon src={User} solid size="24" />
-			<input type="text" name="username" id="username" placeholder="Username" />
-		</label>
-		<label for="password">
-			<Icon src={LockClosed} solid size="24" />
+		<form
+			method="post"
+			use:enhance={({ form }) => {
+				//
+				form.password.value = '';
+				return ({ result }) => {
+					console.log(result);
+					if (result.type == 'success') return goto('/');
+					alert(`Ada kesalahan masukkan username atau password!`);
+				};
+			}}
+		>
+			<label for="username">
+				<Icon src={User} solid size="24" />
+				<input type="text" name="username" id="username" placeholder="Username" />
+			</label>
+			<label for="password">
+				<Icon src={LockClosed} solid size="24" />
 
-			<input type={typeInputPassword} name="password" id="password" placeholder="Password" />
-			<button type="button" on:click={showPassword}>
-				<Icon src={typeInputPassword == 'password' ? EyeSlash : Eye} solid size="24" />
-			</button>
-		</label>
-		<button type="submit">LOGIN</button>
-		<a href="/forgot-password">Forgot password ?</a>
-	</form>
+				<input type={typeInputPassword} name="password" id="password" placeholder="Password" />
+				<button type="button" on:click={showPassword}>
+					<Icon src={typeInputPassword == 'password' ? EyeSlash : Eye} solid size="24" />
+				</button>
+			</label>
+			<button type="submit">LOGIN</button>
+			<a href="/forgot-password">Forgot password ?</a>
+		</form>
+	{/if}
 </main>
 
 <style>
