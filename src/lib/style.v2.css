@@ -1,0 +1,37 @@
+*,
+::before,
+::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+
+input {
+	font-family: 'Kanit', sans-serif;
+}
+
+button {
+	font-family: 'Kanit', sans-serif;
+	cursor: pointer;
+}
+
+:root {
+	--bg-dark: #2e2e52;
+	--bg-light: #dbe2f0;
+	--bg-semi-light: #c3d1e3;
+	--bg-orange: #ff9000;
+}
+
+html > body {
+	font-family: 'Kanit', sans-serif;
+	color: var(--bg-light);
+	background-color: var(--bg-dark);
+	overflow-x: hidden;
+}
