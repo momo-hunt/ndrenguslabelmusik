@@ -11,8 +11,6 @@
 	const dispatch = createEventDispatcher();
 
 	export let hal;
-
-	$: console.log(hal);
 </script>
 
 <aside>
@@ -38,9 +36,9 @@
 </aside>
 
 <style>
-	* {
-		/* border: 0.1px solid red; */
-	}
+	/* * {
+		border: 0.1px solid red;
+	} */
 
 	aside {
 		display: flex;

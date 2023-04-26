@@ -1,17 +1,23 @@
 <script>
-	import { Bell, ChevronDown, Icon } from 'svelte-hero-icons';
+	import { Bell, ChevronDown, ChevronUp, Icon } from 'svelte-hero-icons';
+	import InfoLaporan from './InfoLaporan.svelte';
 
 	export let username;
+	let isShowInfoLapor = false;
 </script>
 
 <article>
 	<h4>Selamat datang</h4>
 	<h5>{username}</h5>
-	<button type="button">
+	<button type="button" on:click={() => (isShowInfoLapor = !isShowInfoLapor)}>
 		<span><Icon src={Bell} solid size="24" /></span>
 		<span>Informasi Laporan & Pembayaran</span>
-		<span><Icon src={ChevronDown} solid size="24" /></span>
+		<span><Icon src={isShowInfoLapor ? ChevronUp : ChevronDown} solid size="24" /></span>
 	</button>
+
+	{#if isShowInfoLapor}
+		<InfoLaporan />
+	{/if}
 </article>
 
 <style>
