@@ -53,6 +53,10 @@
 </main>
 
 <style>
+	* {
+		border: 0.1px solid red !important;
+	}
+
 	main {
 		margin-top: 56px;
 		text-align: center;
@@ -78,19 +82,33 @@
 		padding: 2rem;
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		gap: 1rem;
+	}
+
+	form label {
+		/* display: flex; */
 	}
 
 	form > label,
 	form > button {
 		background-color: var(--bg-2);
-		padding: 0 2rem;
+		padding: 0 1rem;
 		border-radius: 2rem;
 	}
 
 	form > button {
 		background-color: var(--bg-4);
 		font-weight: 600;
+		width: 60%;
+	}
+
+	form input {
+		text-align: center;
+	}
+
+	form input#username {
+		margin-right: 32px;
 	}
 
 	form > label,
