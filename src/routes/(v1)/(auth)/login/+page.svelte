@@ -53,9 +53,9 @@
 </main>
 
 <style>
-	* {
+	/* * {
 		border: 0.1px solid red !important;
-	}
+	} */
 
 	main {
 		margin-top: 56px;
@@ -84,10 +84,6 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 1rem;
-	}
-
-	form label {
-		/* display: flex; */
 	}
 
 	form > label,
