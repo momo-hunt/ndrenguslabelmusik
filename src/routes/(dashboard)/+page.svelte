@@ -153,7 +153,8 @@
 		height: 96px;
 	}
 	footer img {
-		width: 12%;
+		/* width: 12%; */
+		height: 60%;
 		filter: brightness(0.1);
 	}
 </style>

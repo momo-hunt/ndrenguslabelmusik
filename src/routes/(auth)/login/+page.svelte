@@ -47,7 +47,7 @@
 				</button>
 			</label>
 			<button type="submit">LOGIN</button>
-			<a href="/forgot-password">Forgot password ?</a>
+			<a href="/forgot-password" class="link-forgot">Forgot password ?</a>
 		</form>
 	{/if}
 </main>
@@ -56,6 +56,18 @@
 	main {
 		margin-top: 56px;
 		text-align: center;
+	}
+
+	.link-forgot {
+		color: var(--bg-3);
+	}
+
+	.link-forgot:hover {
+		text-decoration: underline;
+	}
+
+	main h2 {
+		color: var(--bg-3);
 	}
 
 	img {
