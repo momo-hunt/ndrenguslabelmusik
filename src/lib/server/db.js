@@ -1,9 +1,9 @@
-import { PUBLIC_API_URL } from '$env/static/public';
+import { PUBLIC_BASE_URL } from '$env/static/public';
 
 const fetchData = async (q) => {
 	console.log('q-', q);
 	const time = new Date().getTime().toString();
-	const res = await fetch(PUBLIC_API_URL + '?t=' + time + '&q=' + JSON.stringify(q));
+	const res = await fetch(PUBLIC_BASE_URL + '?t=' + time + '&q=' + JSON.stringify(q));
 	return res.json();
 };
 

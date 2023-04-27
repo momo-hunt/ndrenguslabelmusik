@@ -12,6 +12,7 @@
 	const dispatch = createEventDispatcher();
 
 	export let hal;
+	export let user;
 </script>
 
 <aside>
@@ -30,11 +31,12 @@
 		</a>
 
 		<hr />
-
-		<a href="/user" class:active={hal == 'user'}>
-			<Icon src={User} solid size="24" />
-			<span>User</span>
-		</a>
+		{#if user.role == 'admin'}
+			<a href="/user" class:active={hal == 'user'}>
+				<Icon src={User} solid size="24" />
+				<span>User</span>
+			</a>
+		{/if}
 
 		<a href="/login?logout">
 			<Icon src={ArrowRightOnRectangle} solid size="24" />

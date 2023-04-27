@@ -24,6 +24,7 @@
 
 {#if isShowSidebar}
 	<Sidebar
+		user={data?.user}
 		hal={data?.path || 'dashboard'}
 		on:toggleSidebar={() => (isShowSidebar = !isShowSidebar)}
 	/>
