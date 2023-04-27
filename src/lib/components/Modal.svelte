@@ -7,7 +7,7 @@
 </script>
 
 <section transition:fade>
-	<button class="backdrop" on:click={() => dispatch('close')}>
+	<button class="backdrop" on:click|self={() => dispatch('close')}>
 		<article in:fly={{ y: -100, opacity: 0.2 }} out:fade>
 			{#if $$slots.header}
 				<header>
