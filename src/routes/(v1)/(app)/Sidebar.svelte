@@ -54,7 +54,7 @@
 		width: 100%;
 		min-height: 100vh;
 
-		position: absolute;
+		position: fixed;
 		z-index: 9;
 		top: 0;
 		left: 0;
