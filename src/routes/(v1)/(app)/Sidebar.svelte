@@ -4,7 +4,8 @@
 		CircleStack,
 		ComputerDesktop,
 		CurrencyDollar,
-		Icon
+		Icon,
+		User
 	} from 'svelte-hero-icons';
 	import { createEventDispatcher } from 'svelte';
 
@@ -27,6 +28,14 @@
 			<Icon src={CurrencyDollar} solid size="24" />
 			<span>Penarikan</span>
 		</a>
+
+		<hr />
+
+		<a href="/user" class:active={hal == 'user'}>
+			<Icon src={User} solid size="24" />
+			<span>User</span>
+		</a>
+
 		<a href="/login?logout">
 			<Icon src={ArrowRightOnRectangle} solid size="24" />
 			<span>Logout</span>
@@ -58,6 +67,11 @@
 		width: 60%;
 		background-color: var(--bg-1);
 		padding: 4rem 0 2rem 0;
+	}
+
+	aside nav hr {
+		opacity: 0.2;
+		margin: 1rem 0;
 	}
 
 	aside nav a {

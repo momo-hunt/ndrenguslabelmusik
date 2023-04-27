@@ -7,7 +7,7 @@
 	let isShowSidebar = false;
 	export let data;
 
-	beforeNavigate(() => (isShowSidebar = !isShowSidebar));
+	beforeNavigate(() => (isShowSidebar = false));
 </script>
 
 {#if isShowSidebar}
@@ -23,9 +23,9 @@
 			<Icon src={Bars3} solid />
 		</button>
 
-		<button type="button">
-			<Icon src={UserCircle} solid />
-		</button>
+		<a href="/profil">
+			<Icon src={UserCircle} solid size="32" />
+		</a>
 	</header>
 
 	<section><h3>{data?.path || 'Dashboard'}</h3></section>
