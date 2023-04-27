@@ -46,7 +46,7 @@
 
 <style>
 	/* * {
-		border: 0.1px solid red;
+		border: 0.1px solid red !important;
 	} */
 
 	aside {
