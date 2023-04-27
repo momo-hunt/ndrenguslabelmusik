@@ -37,21 +37,20 @@
 				<td>-</td>
 				<td class="action">
 					<button type="button" class="edit" title="Edit">
-						<Icon src={PencilSquare} solid size="24" />
+						<Icon src={PencilSquare} solid size="16" />
 					</button>
 					<button type="button" class="delete" title="Hapus">
-						<Icon src={Trash} solid size="24" />
+						<Icon src={Trash} solid size="16" />
 					</button>
 				</td>
 			</tr>
 		</tbody>
-		<legend> Jumlah : 1</legend>
 	</table>
 </article>
 
 {#if isShowModalTambah}
 	<Modal on:close={() => (isShowModalTambah = false)}>
-		<h2 slot="header">Tambah User Baru</h2>
+		<h3 slot="header">Tambah User Baru</h3>
 		<FormTambahUser on:submitTambah={submitTambahUser} />
 	</Modal>
 {/if}
@@ -112,7 +111,7 @@
 	article table button {
 		color: rgb(234, 232, 240);
 		margin: 0.5rem;
-		padding: 0.2rem 1rem;
+		padding: 0.5rem 1rem;
 		height: fit-content;
 		border-radius: 1rem;
 	}

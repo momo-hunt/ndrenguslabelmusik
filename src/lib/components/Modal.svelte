@@ -7,23 +7,25 @@
 </script>
 
 <section transition:fade>
-	<article in:fly={{ y: -100, opacity: 0.2 }} out:fade>
-		{#if $$slots.header}
-			<header>
-				<slot name="header" />
-				<button class="close" on:click={() => dispatch('close')}
-					><Icon src={XMark} size="32" /></button
-				>
-			</header>
-		{/if}
+	<button class="backdrop" on:click={() => dispatch('close')}>
+		<article in:fly={{ y: -100, opacity: 0.2 }} out:fade>
+			{#if $$slots.header}
+				<header>
+					<slot name="header" />
+					<button class="close" on:click={() => dispatch('close')}
+						><Icon src={XMark} size="32" /></button
+					>
+				</header>
+			{/if}
 
-		<main><slot /></main>
-		{#if $$slots.footer}
-			<footer>
-				<slot name="footer" />
-			</footer>
-		{/if}
-	</article>
+			<main><slot /></main>
+			{#if $$slots.footer}
+				<footer>
+					<slot name="footer" />
+				</footer>
+			{/if}
+		</article>
+	</button>
 </section>
 
 <style>
@@ -38,15 +40,24 @@
 		left: 0;
 		width: 100%;
 		min-height: 100vh;
-		background-color: rgba(0, 0, 0, 0.2);
+		background-color: rgba(0, 0, 0, 0.5);
 		display: flex;
 		justify-content: center;
 		align-items: start;
 	}
 
+	section .backdrop {
+		width: 100%;
+		min-height: 100vh;
+		position: absolute;
+		padding: 0;
+		/* background-color: red; */
+	}
+
 	section article {
+		position: relative;
 		margin-top: 4rem;
-		width: 60%;
+		width: 90%;
 		background-color: var(--bg-2);
 		color: var(--bg-1);
 		border-radius: 2rem;
