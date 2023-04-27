@@ -5,6 +5,6 @@
 	export let data;
 </script>
 
-<Welcome username={data?.user || 'null'} />
+<Welcome username={data?.user?.name || 'null'} />
 
 <InfoPenarikan />

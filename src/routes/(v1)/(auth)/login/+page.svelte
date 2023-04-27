@@ -3,8 +3,10 @@
 	import { enhance } from '$app/forms';
 	import logo from '$lib/assets/logo.png';
 	import { Eye, EyeSlash, Icon, LockClosed, User } from 'svelte-hero-icons';
+	import CssLoader from '$lib/components/CssLoader.svelte';
 
 	export let data;
+	let submitted = false;
 
 	let typeInputPassword = 'password';
 	function showPassword() {
@@ -12,6 +14,9 @@
 	}
 </script>
 
+{#if submitted}
+	<CssLoader />
+{/if}
 <main>
 	<img src={logo} alt="Ndrengus Label Musik" />
 
@@ -26,8 +31,10 @@
 			method="post"
 			use:enhance={({ form }) => {
 				//
+				submitted = true;
 				form.password.value = '';
 				return ({ result }) => {
+					submitted = false;
 					console.log(result);
 					if (result.type == 'success') return goto('/');
 					alert(`Ada kesalahan masukkan username atau password!`);

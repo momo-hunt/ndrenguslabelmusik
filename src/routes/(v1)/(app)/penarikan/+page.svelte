@@ -89,8 +89,11 @@
 	}
 
 	section form > label {
+		width: 100%;
 		display: flex;
+		justify-content: start;
 		align-items: start;
+		font-size: 14px;
 	}
 
 	section form > label > input {
