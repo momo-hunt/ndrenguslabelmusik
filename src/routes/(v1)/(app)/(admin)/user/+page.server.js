@@ -8,8 +8,10 @@ export const load = async ({ locals }) => {
 	if (role != 'admin') throw redirect(307, '/');
 
 	let users = await db.collection('user', 'read', { token });
-	if (users.error) return { users: [] };
-
+	if (users.error) {
+		console.log(users);
+		return { users: [], error: true, message: users.message };
+	}
 	return { users };
 };
 

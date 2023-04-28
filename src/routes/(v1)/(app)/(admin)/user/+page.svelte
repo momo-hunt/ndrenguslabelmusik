@@ -15,25 +15,6 @@
 	let isShowModalTambah = false;
 	let editingId = '';
 
-	// const submitTambahUser = async (e) => {
-	// 	loader = true;
-	// 	console.log(e.detail);
-	// 	const { username, password, confirmPassword } = e.detail;
-
-	// 	if (password != confirmPassword) return alert('Password dan confirm Password harus sama');
-
-	// 	const res = await fetch('', {
-	// 		method: 'post',
-	// 		body: JSON.stringify({ username, password })
-	// 	});
-
-	// 	const result = await res.json();
-	// 	if (result) {
-	// 		isShowModalTambah = false;
-	// 		loader = false;
-	// 	}
-	// };
-
 	function hasEditUser(e) {
 		editingId = '';
 		activeId = '';
@@ -58,7 +39,13 @@
 	>
 </section>
 
-<ListView users={$user} on:selectedId={(e) => (activeId = e.detail)} selectedId={activeId} />
+{#if data?.error}
+	<p class="error">
+		<strong>Memuat user gagal.</strong><br />{data?.message}
+	</p>
+{:else}
+	<ListView users={$user} on:selectedId={(e) => (activeId = e.detail)} selectedId={activeId} />
+{/if}
 
 {#if isShowModalTambah}
 	<Modal on:close={() => (isShowModalTambah = false)}>
@@ -82,5 +69,10 @@
 	section.button-tambah button.tambah-user {
 		background-color: var(--bg-2);
 		border-radius: 2rem;
+	}
+
+	p.error {
+		padding: 1rem 0;
+		text-align: center;
 	}
 </style>
