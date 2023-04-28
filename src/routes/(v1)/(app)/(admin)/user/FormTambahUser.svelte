@@ -1,40 +1,61 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
+	import { enhance } from '$app/forms';
+	import { user } from '$lib/stores/userstore.js';
+	import CssLoader from '$lib/components/CssLoader.svelte';
+	import { Eye, EyeSlash, Icon, LockClosed, User, XMark } from 'svelte-hero-icons';
 
 	const dispatch = createEventDispatcher();
 
-	let formData = { username: '', password: '', confirmPassword: '' };
-
-	const onSubmit = (e) => {
-		dispatch('submitTambah', formData);
-	};
+	let isSubmitted = false;
+	let typeInput = { password: 'password', confirmPassword: 'password' };
+	function showPassword(name) {
+		typeInput[name] = typeInput[name] == 'password' ? 'text' : 'password';
+	}
 </script>
 
-<form method="post" on:submit|preventDefault={onSubmit}>
+{#if isSubmitted}
+	<CssLoader />
+{/if}
+
+<form
+	action="?/add"
+	method="post"
+	use:enhance={() => {
+		isSubmitted = true;
+		return async ({ result }) => {
+			isSubmitted = false;
+			if (result.status != 200) return alert(result.message);
+			dispatch('close');
+
+			user.add(result.data.data);
+		};
+	}}
+>
 	<div>
 		<label for="username">Username</label>
-		<input type="text" name="username" id="username" bind:value={formData.username} required />
+		<input type="text" name="username" id="username" required />
 	</div>
 	<div>
 		<label for="password">Password</label>
-		<input type="password" name="password" id="password" bind:value={formData.password} required />
+		<input type={typeInput.password} name="password" id="password" required />
+		<button class="eye" type="button" on:click={() => showPassword('password')}>
+			<Icon src={typeInput.password == 'password' ? EyeSlash : Eye} solid size="24" />
+		</button>
 	</div>
 	<div>
 		<label for="confirmPassword">Confirm Password</label>
-		<input
-			type="password"
-			name="confirmPassword"
-			id="confirmPassword"
-			bind:value={formData.confirmPassword}
-			required
-		/>
+		<input type={typeInput.confirmPassword} name="confirmPassword" id="confirmPassword" required />
+		<button class="eye" type="button" on:click={() => showPassword('confirmPassword')}>
+			<Icon src={typeInput.password == 'password' ? EyeSlash : Eye} solid size="24" />
+		</button>
 	</div>
 	<button type="submit">Tambah</button>
 </form>
 
 <style>
 	/* * {
-		border: 0.1px solid red !important;
+		border: var(--border);
 	} */
 
 	form {
@@ -48,6 +69,7 @@
 
 	form > div {
 		width: 100%;
+		position: relative;
 	}
 
 	form input {
@@ -55,7 +77,15 @@
 		border-radius: 1rem;
 	}
 
-	form button {
+	form > div button {
+		position: absolute;
+		right: 1rem;
+		bottom: 0;
+		padding: 0;
+		opacity: 0.6;
+	}
+
+	form > button {
 		margin-top: 1rem;
 		background-color: var(--bg-1);
 		color: var(--bg-2);

@@ -2,7 +2,6 @@
 	import Modal from '$lib/components/Modal.svelte';
 	import FormTambahUser from './FormTambahUser.svelte';
 	import ListView from './ListView.svelte';
-	import CssLoader from '$lib/components/CssLoader.svelte';
 	import TombolPopup from './TombolPopup.svelte';
 
 	import { user } from '$lib/stores/userstore.js';
@@ -13,28 +12,27 @@
 	user.set(data?.users);
 
 	let activeId = '';
-	let loader = false;
 	let isShowModalTambah = false;
 	let editingId = '';
 
-	const submitTambahUser = async (e) => {
-		loader = true;
-		console.log(e.detail);
-		const { username, password, confirmPassword } = e.detail;
+	// const submitTambahUser = async (e) => {
+	// 	loader = true;
+	// 	console.log(e.detail);
+	// 	const { username, password, confirmPassword } = e.detail;
 
-		if (password != confirmPassword) return alert('Password dan confirm Password harus sama');
+	// 	if (password != confirmPassword) return alert('Password dan confirm Password harus sama');
 
-		const res = await fetch('', {
-			method: 'post',
-			body: JSON.stringify({ username, password })
-		});
+	// 	const res = await fetch('', {
+	// 		method: 'post',
+	// 		body: JSON.stringify({ username, password })
+	// 	});
 
-		const result = await res.json();
-		if (result) {
-			isShowModalTambah = false;
-			loader = false;
-		}
-	};
+	// 	const result = await res.json();
+	// 	if (result) {
+	// 		isShowModalTambah = false;
+	// 		loader = false;
+	// 	}
+	// };
 
 	function hasEditUser(e) {
 		editingId = '';
@@ -45,10 +43,6 @@
 
 	$: console.log($user);
 </script>
-
-{#if loader}
-	<CssLoader />
-{/if}
 
 {#if activeId != ''}
 	<TombolPopup id={activeId} on:onEdit={(e) => (editingId = e.detail)} />
@@ -69,7 +63,7 @@
 {#if isShowModalTambah}
 	<Modal on:close={() => (isShowModalTambah = false)}>
 		<h3 slot="header">Tambah User Baru</h3>
-		<FormTambahUser on:submitTambah={submitTambahUser} />
+		<FormTambahUser on:close={() => (isShowModalTambah = false)} />
 	</Modal>
 {/if}
 

@@ -2,23 +2,31 @@
 	import { Icon, Pencil, Trash } from 'svelte-hero-icons';
 	import { user } from '$lib/stores/userstore.js';
 	import { createEventDispatcher } from 'svelte';
+	import CssLoader from '$lib/components/CssLoader.svelte';
 	const dispatch = createEventDispatcher();
 
 	export let id = '';
+	let isDeleting = false;
 
 	async function onDelete(id) {
+		isDeleting = true;
 		let isConfirm = confirm('Apakah yakin menghapus ?');
 		if (isConfirm) user.delete(id);
 
 		const res = await fetch('/user/' + id, { method: 'delete' });
 		const result = await res.json();
 		console.log(result);
+		isDeleting = false;
 	}
 
 	function onEdit(id) {
 		dispatch('onEdit', id);
 	}
 </script>
+
+{#if isDeleting}
+	<CssLoader />
+{/if}
 
 <section>
 	<button class="edit" on:click={() => onEdit(id)}><Icon src={Pencil} size="24" solid /></button>

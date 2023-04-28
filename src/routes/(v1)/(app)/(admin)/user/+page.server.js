@@ -28,5 +28,19 @@ export const actions = {
 
 		if (user.error) return fail(400, user.message);
 		return { id, data };
+	},
+
+	add: async ({ request, locals }) => {
+		let { username, password, confirmPassword } = Object.fromEntries(await request.formData());
+		const token = locals.user.token;
+		if (password != confirmPassword) return fail(400, 'Password dan Confirm Password tidak sama.');
+
+		password = await bcrypt.hash(password, 10);
+		let data = { username, password };
+		const user = await db.collection('user', 'create', { data, token });
+		console.log(user);
+
+		if (user.error) return fail(400, user.message);
+		return user;
 	}
 };

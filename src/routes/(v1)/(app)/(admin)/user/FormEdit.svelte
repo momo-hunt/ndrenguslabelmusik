@@ -11,7 +11,7 @@
 		typeInput[name] = typeInput[name] == 'password' ? 'text' : 'password';
 	}
 
-	export let id = {};
+	export let id = '';
 	let isSubmitted = false;
 	let userSelect = $user.filter((a) => a.id == id)[0];
 </script>
@@ -89,7 +89,7 @@
 	} */
 
 	section {
-		position: absolute;
+		position: fixed;
 		z-index: 9;
 		top: 0;
 		left: 0;
