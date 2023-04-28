@@ -47,9 +47,9 @@
 </aside>
 
 <style>
-	* {
+	/* * {
 		border: var(--border);
-	}
+	} */
 
 	aside {
 		display: flex;
