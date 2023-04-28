@@ -1,6 +1,6 @@
 <script>
 	import { Icon, Pencil, Trash } from 'svelte-hero-icons';
-	import { user } from '$lib/stores/userStore.js';
+	import { user } from '$lib/stores/userstore.js';
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
 

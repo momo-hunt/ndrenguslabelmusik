@@ -1,6 +1,6 @@
 <script>
 	import { enhance } from '$app/forms';
-	import { user } from '$lib/stores/userStore.js';
+	import { user } from '$lib/stores/userstore.js';
 	import { Eye, EyeSlash, Icon, LockClosed, User, XMark } from 'svelte-hero-icons';
 	import { createEventDispatcher } from 'svelte';
 	import CssLoader from '$lib/components/CssLoader.svelte';

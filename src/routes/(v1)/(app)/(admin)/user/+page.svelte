@@ -5,7 +5,7 @@
 	import CssLoader from '$lib/components/CssLoader.svelte';
 	import TombolPopup from './TombolPopup.svelte';
 
-	import { user } from '$lib/stores/userStore.js';
+	import { user } from '$lib/stores/userstore.js';
 	import FormEdit from './FormEdit.svelte';
 
 	export let data;
@@ -43,7 +43,7 @@
 		if (e.detail) user.put(e.detail.id, e.detail.data);
 	}
 
-	// $: console.log($user);
+	$: console.log($user);
 </script>
 
 {#if loader}
