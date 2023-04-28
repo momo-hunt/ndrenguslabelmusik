@@ -47,9 +47,9 @@
 </aside>
 
 <style>
-	/* * {
-		border: 0.1px solid red !important;
-	} */
+	* {
+		border: var(--border);
+	}
 
 	aside {
 		display: flex;
@@ -68,7 +68,7 @@
 		flex-direction: column;
 		width: 60%;
 		background-color: var(--bg-1);
-		padding: 4rem 0 2rem 0;
+		padding: 4rem 0 4rem 0;
 	}
 
 	aside nav hr {

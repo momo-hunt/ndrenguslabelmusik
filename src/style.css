@@ -10,6 +10,8 @@
 	--bg-2: #dbe2f0;
 	--bg-3: #ff9000;
 	--bg-4: #c3d1e3;
+
+	--border: 0.1px solid red !important;
 }
 
 *,

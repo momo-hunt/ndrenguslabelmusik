@@ -27,11 +27,6 @@ export const actions = {
 
 			if (!checkPass) throw Error('Username atau password salah.');
 
-			// if (data.username == 'admin' && data.password == 'a1234') {
-			// 	cookies.set('sessionId', 'admin');
-			// 	return;
-			// }
-
 			const authUser = await db.authToken(user.index, data);
 			console.log('user', authUser);
 			if (authUser.error) throw Error(authUser.message);
@@ -46,7 +41,3 @@ export const actions = {
 		}
 	}
 };
-
-// logout: async ({ cookies }) => {
-
-// }
