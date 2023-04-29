@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt';
 
 export const load = async ({ locals }) => {
 	let { token, role } = locals.user;
-	if (role != 'admin') throw redirect(307, '/');
+	if (role < 4) throw redirect(307, '/');
 
 	let users = await db.collection('user', 'read', { token });
 	if (users.error) {

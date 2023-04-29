@@ -31,7 +31,7 @@
 		</a>
 
 		<hr />
-		{#if user.role == 'admin'}
+		{#if user.role >= 4}
 			<a href="/user" class:active={hal == 'user'}>
 				<Icon src={User} solid size="24" />
 				<span>User</span>

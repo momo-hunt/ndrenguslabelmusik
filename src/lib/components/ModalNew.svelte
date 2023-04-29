@@ -49,6 +49,7 @@
 		top: 0;
 		right: 0;
 		padding: 0.5rem;
+		color: rgb(240, 6, 6);
 	}
 
 	main section {
@@ -56,7 +57,8 @@
 		background-color: var(--bg-2);
 		color: var(--bg-1);
 		width: 100%;
-		padding: 1rem;
 		border-radius: 1rem;
+		overflow-x: hidden;
+		overflow-y: auto;
 	}
 </style>

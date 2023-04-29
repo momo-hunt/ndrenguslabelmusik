@@ -1,6 +1,6 @@
 <script>
-	import ModalNew from '$lib/components/ModalNew.svelte';
 	import InfoPenarikan from './InfoPenarikan.svelte';
+	import ModalTambahKeuangan from './ModalTambahKeuangan.svelte';
 	import Welcome from './Welcome.svelte';
 	import {
 		ArrowDownCircle,
@@ -14,14 +14,16 @@
 	export let data;
 
 	let dataModalTambah = null;
+
+	function openModalTambah(user_id, slot) {
+		dataModalTambah = { user_id, slot };
+	}
 </script>
 
 <Welcome username={data?.user?.name || 'null'} />
 
-{#if data?.user?.role == 'admin'}
-	{#if dataModalTambah}
-		<ModalNew>Tambah</ModalNew>
-	{/if}
+{#if data?.user?.role >= 4}
+	<ModalTambahKeuangan data={dataModalTambah} />
 
 	<section>
 		<header>
@@ -44,7 +46,7 @@
 					<div>$ 1.0</div>
 				</li>
 			</ul>
-			<button>
+			<button on:click={() => openModalTambah('abc', 'pendapatan')}>
 				<Icon src={Plus} size="24" solid />
 				<span>Tambah</span>
 			</button>
@@ -128,6 +130,7 @@
 		justify-content: space-between;
 		align-items: center;
 		border-bottom: 1px solid var(--bg-1);
+		padding-bottom: 0.5rem;
 		gap: 0.5rem;
 	}
 
@@ -140,15 +143,15 @@
 		opacity: 0.6;
 	}
 	section article header.green > span {
-		color: rgb(15, 160, 15);
+		color: rgb(15, 180, 15);
 	}
 
 	section article header.red > span {
-		color: rgb(160, 15, 15);
+		color: rgb(205, 15, 15);
 	}
 
 	section article header.blue > span {
-		color: rgb(15, 15, 160);
+		color: rgb(15, 15, 205);
 	}
 
 	section article header h3 {

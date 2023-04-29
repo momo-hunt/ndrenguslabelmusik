@@ -54,9 +54,7 @@
 				<label for="role">Role</label>
 				<select name="role" id="role">
 					<option value={undefined} disabled selected>Silakan pilih!</option>
-					<option value="user" selected={userSelect.role == 'user'}>User</option>
 					<option value="artis" selected={userSelect.role == 'artis'}>Artis</option>
-					<option value="bendahara" selected={userSelect.role == 'bendahara'}>Bendahara</option>
 					<option value="admin" selected={userSelect.role == 'admin'}>Admin</option>
 				</select>
 			</div>

@@ -9,24 +9,26 @@
 </script>
 
 {#each users as u}
-	<button
-		class:active={u.id == selectedId}
-		on:click={() => {
-			selectedId = u.id;
-			dispatch('selectedId', u.id);
-		}}
-	>
-		<article>
-			<div class="left">
-				<Icon src={UserCircle} size="56" />
-			</div>
-			<div class="right">
-				<h4>{u.username}</h4>
-				<p>{u.role == '' ? 'Role kosong' : u.role}</p>
-				<small>Login terakhir : {u.login_at}</small>
-			</div>
-		</article>
-	</button>
+	{#if u.role != 'superadmin'}
+		<button
+			class:active={u.id == selectedId}
+			on:click={() => {
+				selectedId = u.id;
+				dispatch('selectedId', u.id);
+			}}
+		>
+			<article>
+				<div class="left">
+					<Icon src={UserCircle} size="56" />
+				</div>
+				<div class="right">
+					<h4>{u.username}</h4>
+					<p>{u.role == '' ? 'Role kosong' : u.role}</p>
+					<small>Login terakhir : {u.login_at}</small>
+				</div>
+			</article>
+		</button>
+	{/if}
 {/each}
 
 <style>
