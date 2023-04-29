@@ -1,9 +1,9 @@
 <script>
+	import { loading } from '$lib/stores/store.js';
 	import { enhance } from '$app/forms';
 	import { user } from '$lib/stores/userstore.js';
 	import { Eye, EyeSlash, Icon, LockClosed, User, XMark } from 'svelte-hero-icons';
 	import { createEventDispatcher } from 'svelte';
-	import CssLoader from '$lib/components/CssLoader.svelte';
 	const dispatch = createEventDispatcher();
 
 	let typeInput = { password: 'password', confirmPassword: 'password' };
@@ -12,13 +12,8 @@
 	}
 
 	export let id = '';
-	let isSubmitted = false;
 	let userSelect = $user.filter((a) => a.id == id)[0];
 </script>
-
-{#if isSubmitted}
-	<CssLoader />
-{/if}
 
 <section>
 	<article>
@@ -33,9 +28,9 @@
 			action="?/edit"
 			method="post"
 			use:enhance={() => {
-				isSubmitted = true;
+				loading.show();
 				return async ({ result }) => {
-					isSubmitted = false;
+					loading.hide();
 					if (result.status != 200) {
 						alert('Gagal ubah.');
 						dispatch('close', 'error');

@@ -44,7 +44,12 @@
 		<strong>Memuat user gagal.</strong><br />{data?.message}
 	</p>
 {:else}
-	<ListView users={$user} on:selectedId={(e) => (activeId = e.detail)} selectedId={activeId} />
+	<ListView
+		{data}
+		users={$user}
+		on:selectedId={(e) => (activeId = e.detail)}
+		selectedId={activeId}
+	/>
 {/if}
 
 {#if isShowModalTambah}

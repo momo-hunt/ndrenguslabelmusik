@@ -12,6 +12,7 @@
 	} from 'svelte-hero-icons';
 
 	export let data;
+	$: console.log(data);
 
 	let dataModalTambah = null;
 
@@ -37,14 +38,12 @@
 				<h3>$ 2.0</h3>
 			</header>
 			<ul>
-				<li>
-					<div>April</div>
-					<div>$ 1.0</div>
-				</li>
-				<li>
-					<div>Mei</div>
-					<div>$ 1.0</div>
-				</li>
+				{#each data.keuangan.filter((a) => a.user_id == 'abc') as k}
+					<li>
+						<div>{k.bulan}</div>
+						<div>$ {k.pendapatan}</div>
+					</li>
+				{/each}
 			</ul>
 			<button on:click={() => openModalTambah('abc', 'pendapatan')}>
 				<Icon src={Plus} size="24" solid />

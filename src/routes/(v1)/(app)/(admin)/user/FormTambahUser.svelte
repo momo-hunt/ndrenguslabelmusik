@@ -1,30 +1,25 @@
 <script>
+	import { loading } from '$lib/stores/store.js';
 	import { createEventDispatcher } from 'svelte';
 	import { enhance } from '$app/forms';
 	import { user } from '$lib/stores/userstore.js';
-	import CssLoader from '$lib/components/CssLoader.svelte';
 	import { Eye, EyeSlash, Icon, LockClosed, User, XMark } from 'svelte-hero-icons';
 
 	const dispatch = createEventDispatcher();
 
-	let isSubmitted = false;
 	let typeInput = { password: 'password', confirmPassword: 'password' };
 	function showPassword(name) {
 		typeInput[name] = typeInput[name] == 'password' ? 'text' : 'password';
 	}
 </script>
 
-{#if isSubmitted}
-	<CssLoader />
-{/if}
-
 <form
 	action="?/add"
 	method="post"
 	use:enhance={() => {
-		isSubmitted = true;
+		loading.show();
 		return async ({ result }) => {
-			isSubmitted = false;
+			loading.hide();
 			if (result.status != 200) return alert(result.message);
 			dispatch('close');
 

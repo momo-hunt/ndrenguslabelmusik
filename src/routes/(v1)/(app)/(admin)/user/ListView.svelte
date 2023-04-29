@@ -3,13 +3,14 @@
 	import { Icon, UserCircle } from 'svelte-hero-icons';
 
 	export let users;
+	export let data;
 	const dispatch = createEventDispatcher();
 
 	export let selectedId = '';
 </script>
 
 {#each users as u}
-	{#if u.role != 'superadmin'}
+	{#if u.role != 'superadmin' || data?.user?.role == 5}
 		<button
 			class:active={u.id == selectedId}
 			on:click={() => {

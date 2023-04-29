@@ -16,31 +16,31 @@
 	>
 		<div class="grup">
 			<label for="artis">Nama Artis</label>
-			<input type="text" name="artis" id="artis" />
+			<input type="text" name="artis" id="artis" required />
 		</div>
 		<div class="grup">
 			<label for="jumlah">Jumlah Penarikan</label>
-			<input type="number" name="jumlah" id="jumlah" />
+			<input type="number" name="jumlah" id="jumlah" required />
 		</div>
 		<div class="grup">
 			<label for="metode">Metode Penarikan</label>
-			<input type="text" name="metode" id="metode" />
+			<input type="text" name="metode" id="metode" required />
 		</div>
 		<div class="grup">
 			<label for="rekening_wallet">Nomor Rekening / E-Wallet</label>
-			<input type="text" name="rekening_wallet" id="rekening_wallet" />
+			<input type="text" name="rekening_wallet" id="rekening_wallet" required />
 		</div>
 		<div class="grup">
 			<label for="nama_rekening_wallet">Atas Nama Rekening / E-Wallet</label>
-			<input type="text" name="nama_rekening_wallet" id="nama_rekening_wallet" />
+			<input type="text" name="nama_rekening_wallet" id="nama_rekening_wallet" required />
 		</div>
 
 		<label for="">
-			<input type="checkbox" name="telah_isi" id="telah_isi" />
+			<input type="checkbox" name="telah_isi" id="telah_isi" required />
 			<span>Saya telah mengisi <strong>formulir</strong> dengan benar.</span>
 		</label>
 		<label for="">
-			<input type="checkbox" name="peraturan" id="peraturan" />
+			<input type="checkbox" name="peraturan" id="peraturan" required />
 			<span>Saya telah membaca <strong>peraturan</strong> yang ada.</span>
 		</label>
 

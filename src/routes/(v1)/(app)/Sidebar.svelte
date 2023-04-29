@@ -21,10 +21,7 @@
 			<Icon src={ComputerDesktop} solid size="24" />
 			<span>Dashboard</span>
 		</a>
-		<a href="/aset" class:active={hal == 'aset'}>
-			<Icon src={CircleStack} solid size="24" />
-			<span>Aset</span>
-		</a>
+
 		<a href="/penarikan" class:active={hal == 'penarikan'}>
 			<Icon src={CurrencyDollar} solid size="24" />
 			<span>Penarikan</span>
@@ -32,6 +29,10 @@
 
 		<hr />
 		{#if user.role >= 4}
+			<a href="/aset" class:active={hal == 'aset'}>
+				<Icon src={CircleStack} solid size="24" />
+				<span>Aset</span>
+			</a>
 			<a href="/user" class:active={hal == 'user'}>
 				<Icon src={User} solid size="24" />
 				<span>User</span>

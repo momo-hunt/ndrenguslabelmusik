@@ -4,23 +4,15 @@
 	import { Bars3, Icon, UserCircle } from 'svelte-hero-icons';
 	import logo from '$lib/assets/logo.png';
 	import Sidebar from './Sidebar.svelte';
-	import CssLoader from '$lib/components/CssLoader.svelte';
 
 	let isShowSidebar = false;
-	let showLoader = false;
+
 	export let data;
 
-	beforeNavigate(() => {
-		// showLoader = true;
-		isShowSidebar = false;
-	});
+	beforeNavigate(() => loading.hide());
 
 	$: showLoader = $navigating == null ? false : true;
 </script>
-
-{#if showLoader}
-	<CssLoader />
-{/if}
 
 {#if isShowSidebar}
 	<Sidebar

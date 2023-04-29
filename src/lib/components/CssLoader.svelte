@@ -1,8 +1,14 @@
-<section>
-	<div>
-		<div class="custom-loader" />
-	</div>
-</section>
+<script>
+	import { loading } from '$lib/stores/store.js';
+</script>
+
+{#if $loading}
+	<section>
+		<div>
+			<div class="custom-loader" />
+		</div>
+	</section>
+{/if}
 
 <style>
 	section {
