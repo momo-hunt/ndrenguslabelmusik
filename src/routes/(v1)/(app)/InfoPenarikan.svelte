@@ -5,7 +5,7 @@
 	</article>
 	<article>
 		<h4>April 2023</h4>
-		<h2>$0.00</h2>
+		<h2>$0.01</h2>
 	</article>
 	<article>
 		<h4>Mei 2023</h4>
